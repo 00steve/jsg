@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>JSG Unit Tests</title>
+		<script src="jsg/Jsg.js"></script>
+		<script src="jsg/UnitTest.js"></script>
+	</head>
+	
+	<body>
+
+		<h1>JSG Unit Tests</h1>
+		
+		<div id="pointTests"></div>
+		<script>
+			var utl = new UnitTestList({
+				"title":"Point() Tests",
+				"container":document.getElementById('pointTests')
+			});
+			utl.Add(new UnitTest(function(){return new Point(5);},false));
+			utl.Add(new UnitTest(function(){return new Point("b");},false));
+			utl.Add(new UnitTest(function(){return new Point(null);},false));
+			utl.Add(new UnitTest(function(){return new Point(true);},false));
+			utl.Add(new UnitTest(function(){return new Point(5,null);},false));
+			utl.Add(new UnitTest(function(){return new Point(null,null);},false));
+			utl.Add(new UnitTest(function(){return new Point([34,342,5]);},false));
+			utl.Add(new UnitTest(function(){return new Point(5,"f");},false));
+			utl.Add(new UnitTest(function(){return new Point("b",34);},false));
+			utl.Add(new UnitTest(function(){return new Point(-5453,34);},true));
+			utl.Add(new UnitTest(function(){return new Point(53,0);},true));
+			utl.Add(new UnitTest(function(){return new Point(-0,545.235);},true));
+			utl.Add(new UnitTest(function(){return new Point(-343.4,-532.23);},true));
+			
+			utl.Run();
+		</script>
+		
+		<div id="polygonTests"></div>
+		<script>
+			var utl = new UnitTestList({
+				"title":"Polygon() Tests",
+				"container":document.getElementById('polygonTests')
+			});
+			utl.Add(new UnitTest(function(){return new Polygon("stuff");},false));
+			utl.Add(new UnitTest(function(){return new Polygon(543);},false));
+			utl.Add(new UnitTest(function(){return new Polygon([new Point(4,5),new Point(1,4)]);},true));
+			utl.Add(new UnitTest(function(){return new Polygon({a:new Point(4,5),b:new Point(1,4)});},true));
+			utl.Add(new UnitTest(function(){return new Polygon({a:new Point('wdqwd',5),b:new Point(1,4)});},false));
+			utl.Run();
+		</script>
+	
+	</body>
+
+
+
+</html>
