@@ -15,3 +15,17 @@ if(typeof Jsg === 'undefined'){
 	
 	
 }
+
+
+
+
+
+//define mixins
+
+
+
+//collide
+
+//control
+
+//animate

@@ -1,22 +1,29 @@
 /*javascript graph*/
 
 
+
+
 if(typeof Jsg === 'undefined'){
+
+
 	Jsg = {};
-	Jsg.points = [];
-	Jsg.drawables = [];
+	
 	
 	Jsg.Add = function(shape){
 		if(typeof shape !== 'object') throw new Error("Shape must be a valid object type (for example a Point() or Polygon().");
 		
-		/*
-		if(shape.type == "point"){
-			this.points.push(shape);
-		}*/
-		
-		if(typeof shape.Draw === 'function' && typeof Jsg.Draw !== 'undefined'){
-			this.drawables.push(shape);
+		if(typeof shape.Move === 'function'){
+			Jsg.Movables.Add(shape);
 		}
+		
+		if(typeof shape.Draw === 'function'){
+			Jsg.Drawables.Add(shape);
+		}
+		if(typeof shape.Update === 'function'){
+			Jsg.Updatables.Add(shape);
+		}
+		
+		
 	}
 	
 	Jsg.Points = function(){
