@@ -45,6 +45,24 @@
 			utl.Add(new UnitTest(function(){return new Polygon({a:new Point('wdqwd',5),b:new Point(1,4)});},false));
 			utl.Run();
 		</script>
+		
+		<div id="voronoiTests"></div>
+		<script>
+			var utl = new UnitTestList({
+				"title":"Voronoi() Tests",
+				"container":document.getElementById('voronoiTests')
+			});
+			utl.Add(new UnitTest(function(){return new Voronoi([
+				new Point(4,1),
+				new Point(1,2.123),
+				new Point(-1,-54),
+				new Point(145.234,4.9),
+				new Point(1235,49.234),
+				new Point(1235,-4.908),
+				new Point(97,45.7),
+				new Point(-4.27,9.63)]);},true));
+			utl.Run();
+		</script>
 	
 	</body>
 

@@ -27,13 +27,9 @@ if(typeof UnitTest === 'undefined'){
 		
 		this.Run = function(){
 			html = "";
-			console.log(container);
-			console.log(container.innerHTML);
 			if(printToScreen){
 				html += "<h3>" + title + "</h3><table><thead><tr><td>Test</td><td>Code</td><td>Result</td><td>Pass</td></tr></thead><tbody>";
 			}
-			
-			
 			successfulTests = 0;
 			failedTests = 0;
 			var exception;
@@ -55,19 +51,11 @@ if(typeof UnitTest === 'undefined'){
 					exception = false;
 				}
 				if(exception === test.exception){
-					
 					if(printToScreen){
 						html += result + "</td><td>True";
 					}
-					
 					++successfulTests;
 				} else {
-					console.log("test was a failure");
-					if(errMessage){
-						console.log(errMessage);
-					} else {
-						console.log(test.code + " should fail, but did not!\n");
-					}
 					if(printToScreen){
 						html += (errMessage ? errMessage : result) + "</td><td>False";
 					}

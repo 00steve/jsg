@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>JSG Unit Tests</title>
+		<script src="jsg/jsg.js"></script>
+		<script src="jsg/jsg.draw.js"></script>
+		<script src="jsg/jsg.collide.js"></script>
+	</head>
+	
+	<body>
+		
+		<canvas id="drawJSGCanvas" style="width:500px;height:500px;"></canvas>
+		
+		<script>
+		
+			Jsg.Add(new Point(50,20).Size(8));
+			Jsg.Add(new Point(150,355).Size(8));
+			Jsg.Add(new Point(240,452).Size(12));
+			Jsg.Add(new Point(423,76).Size(4));
+			Jsg.Add(new Point(300,210).Size(8));
+			//Jsg.Add(new Voronoi(Jsg.Points()));
+			Jsg.Add(new Line(new Point(10,10),new Point(100,50)));
+		
+			Jsg.Add(new Polygon([
+				new Point(100,100),
+				new Point(200,100),
+				new Point(200,200),
+				new Point(100,200)
+			]));
+		
+		
+			Jsg.Canvas.Node(document.getElementById("drawJSGCanvas"));
+			//Jsg.Canvas.RedrawOnResize(false);
+			Jsg.FitDrawAreaToCanvas();
+			//Jsg.Draw();
+		</script>
+	
+	
+	</body>
+
+
+
+</html>
