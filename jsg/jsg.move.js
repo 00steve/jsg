@@ -18,12 +18,17 @@ if(typeof Jsg === 'undefined'){
 	
 	Jsg.Movable = function(properties){
 		properties = properties || {};
+		this.friction = (properties.friction && properties.friction.x && properties.friction.y ? properties.friction : new Point(properties.friction,properties.friction)) || null;
 		this.position = properties.position || new Point(0,0);	
 		this.velocity = properties.velocity || new Point(0,0);
 		
 		this.Move = function(timestep){
-			this.position.x += this.velocity.x;
-			this.position.y += this.velocity.y;
+			this.position.x += this.velocity.x * timestep;
+			this.position.y += this.velocity.y * timestep;
+			if(this.friction != null){
+				this.velocity.x = this.velocity.x * (1 - this.friction.x * timestep);
+				this.velocity.y = this.velocity.y * (1 - this.friction.y * timestep);
+			}
 		}
 		
 		this.ShiftVelocity = function(x,y){

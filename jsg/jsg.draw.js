@@ -52,6 +52,21 @@ if(typeof Jsg === 'undefined'){
 		}
 		return this;
 	}
+	Jsg.Drawable.Sprite = function(properties){
+		properties = properties || {};
+		properties.currentFrame = properties.currentFrame || 0;
+		properties.frameCount = properties.frameCount || 1;
+		properties.image = properties.image || new Image();
+		if(propeties.imageSource){
+			properties.image.src = properties.imageSource;
+		}
+		
+		this.Draw = function(context){
+			
+		}
+		return this;
+	}
+	
 	
 	
 	Jsg.Canvas = {};

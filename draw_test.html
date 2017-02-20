@@ -33,22 +33,27 @@
 			
 			var Thing1 = function(){};
 			Jsg.Drawable.Circle.call(Thing1.prototype,{radius:14});
-			Jsg.Movable.call(Thing1.prototype);
+			Jsg.Movable.call(Thing1.prototype,{
+				friction:5
+			});
 			Jsg.Controllable.call(Thing1.prototype);
 			Jsg.Updatable.call(Thing1.prototype,{callback:function(timestep){
 				if(this.Keyboard.IsPressed(['W'])){
-					this.ShiftVelocity(0,-1*timestep);
+					this.ShiftVelocity(0,-250*timestep);
 				}
 				if(this.Keyboard.IsPressed(['S'])){
-					this.ShiftVelocity(0,1*timestep);
+					this.ShiftVelocity(0,250*timestep);
 				}
 				if(this.Keyboard.IsPressed(['A'])){
-					this.ShiftVelocity(-1*timestep,0);
+					this.ShiftVelocity(-250*timestep,0);
 				}
 				if(this.Keyboard.IsPressed(['D'])){
-					this.ShiftVelocity(1*timestep,0);
+					this.ShiftVelocity(250*timestep,0);
 				}
 			}});
+		
+			
+			
 			
 			var th = new Thing1({position:new Point(200,200)});
 			Jsg.Add(th);
